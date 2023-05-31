@@ -24,7 +24,7 @@ To run the server in default port 8080:
 gradle runServer
 ```
 
-To connect the client to default port 8080:
+Connect client to default port 8080:
 
 ```
 gradle runClient
@@ -38,7 +38,7 @@ To run server in port 8000:
 gradle runServer -Pport=8000
 ```
 
-connect client to port 8000:
+Connect client to port 8000:
 
 ```
 gradle runClient -Pport=8000 -Phost=localhost
