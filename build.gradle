@@ -1,0 +1,48 @@
+// set as java application
+apply plugin: 'application'
+
+//define main class
+mainClassName = 'Concentration'
+
+def host = "localhost"
+def port = 8080
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.json', name: 'json', version: '20200518'
+}
+
+task runClient(type: JavaExec) {
+  group 'gui'
+  description 'Takes an image and makes the rebus library'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'ClientGui'
+  standardInput = System.in
+
+  // allows you to provide port&host (which order does not matter as long as named correctly)
+  // run with arguments e.g.: gradle runClient -Pport=8080 -Phost=localhost
+  if (project.hasProperty("port") && project.hasProperty("host")) {
+    args(project.getProperty('port'), project.getProperty('host'));
+  }
+}
+
+task runServer(type: JavaExec) {
+  group 'tcp'
+  description 'Displays a GUI for a game of concentration'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'Server'
+  standardInput = System.in
+
+  // allows you to provide port
+  // run with arguments e.g.: gradle runServer -Pport=8080
+  if (project.hasProperty("port")) {
+    args(project.getProperty('port'));
+  }
+}
