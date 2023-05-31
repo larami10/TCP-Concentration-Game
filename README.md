@@ -16,7 +16,7 @@ You can clone the repository and:
 cd TCP-Concentration-Game
 ```
 
-### To Run Server
+### To Run Concentration Game in default port 8080
 
 To run the server in default port 8080:
 
@@ -24,21 +24,21 @@ To run the server in default port 8080:
 gradle runServer
 ```
 
-OR to run server in port 8000:
-
-```
-gradle runServer -Pport=8000
-```
-
-### To Run Client
-
-To connect the client to default server:
+To connect the client to default port 8080:
 
 ```
 gradle runClient
 ```
 
-OR connect client to port 8000:
+### To Run Concentration Game in port 8000
+
+To run server in port 8000:
+
+```
+gradle runServer -Pport=8000
+```
+
+connect client to port 8000:
 
 ```
 gradle runClient -Pport=8000 -Phost=localhost
